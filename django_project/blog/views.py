@@ -82,3 +82,6 @@ def about(request):
 def news(request):    
     return render(request, 'blog/news.html', {'title': 'News'})
 
+def contact(request):
+    return render(request, 'blog/contact.html', {'title': 'Contact'})
+
