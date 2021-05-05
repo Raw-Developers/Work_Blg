@@ -17,9 +17,18 @@
     {% else %}
         <title>Research</title>
     {% endif %}
-    <link rel="shortcut icon" href="{% static 'blog/hemp.png' %}">
+    <link rel="shortcut icon" href="{% static 'blog/images/hemp.png' %}">
 </head>
-<body>
+<style>
+  body {
+    background-image: url({% static 'blog/images/background.png'%});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+    <!--<div style="background-image: url({% static 'blog/images/background.png'%});">-->
+
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">

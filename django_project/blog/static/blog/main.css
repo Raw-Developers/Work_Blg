@@ -1,4 +1,8 @@
 body {
+  background-image: url({% static 'blog/images/background.png'%});
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
