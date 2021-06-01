@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import (
@@ -83,5 +85,24 @@ def news(request):
     return render(request, 'blog/news.html', {'title': 'News'})
 
 def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = "Website Inquiry" 
+            body = {
+			'first_name': form.cleaned_data['first_name'], 
+			'last_name': form.cleaned_data['last_name'], 
+			'email': form.cleaned_data['email_address'], 
+			'message':form.cleaned_data['message'], 
+			}
+            message = "\n".join(body.values())
+
+            try:
+                send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+        return redirect ("main:homepage")
+      
+    form = ContactForm()
     return render(request, 'blog/contact.html', {'title': 'Contact'})
 
