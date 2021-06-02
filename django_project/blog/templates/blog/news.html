@@ -1,6 +1,81 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
 <h1> Daily News and Updates</h1>
 <h2> Keep in touch with the latest application</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+  box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
+  border-radius: 8px;
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+div.container1 {
+  background: #ffffff;
+  box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
+  padding: 10px 20px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container1 {
+  position: relative;
+  width: 100%;
+}
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #86b45069;
+  overflow: auto;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container1:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  white-space: break-spaces; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container1">
+  <img src="{% static  'blog/images/BOHECO.png'%}" class="image">
+  <div class="overlay">
+    <div class="text"><h3>India’s Cannabis Market: Examining Regulatory Frameworks Then & Now</h3>
+                      <p>Following news in February that India’s first medical cannabis clinic has opened in Bangalore, Partner Shantanu Sinha and Senior Associate Rohit Fogla from Hill Dickinson’s India Desk discuss India’s history with cannabis, and how recent events suggest the country’s attitude to the plant may be changing.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
 
 {% endblock %}
