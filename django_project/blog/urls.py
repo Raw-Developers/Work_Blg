@@ -19,5 +19,6 @@ urlpatterns = [
     path('about/', views.about, name='blog-about'),
     path('news/', views.news, name='blog-news'),
     path('contact/', views.contact, name='blog-contact'),
-
+    path('success/', views.successView, name='success'),
+    path('newst/', views.newst, name='blog-newst')
 ]
