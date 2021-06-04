@@ -11,6 +11,9 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import ContactForm
 
 
 def home(request):
@@ -85,24 +88,61 @@ def news(request):
     return render(request, 'blog/news.html', {'title': 'News'})
 
 def contact(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = "Website Inquiry" 
-            body = {
-			'first_name': form.cleaned_data['first_name'], 
-			'last_name': form.cleaned_data['last_name'], 
-			'email': form.cleaned_data['email_address'], 
-			'message':form.cleaned_data['message'], 
-			}
-            message = "\n".join(body.values())
-
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+                send_mail(subject, message, from_email, ['admin@example.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-        return redirect ("main:homepage")
-      
-    form = ContactForm()
-    return render(request, 'blog/contact.html', {'title': 'Contact'})
+            return redirect('success')
+    return render(request, "blog/contact.html", {'form': form})
 
+def successView(request):
+    return HttpResponse('Success! Thank you for your message.')
+#============================================================================================================
+# Web Scrapper Start
+#============================================================================================================
+
+from django.shortcuts import render
+import requests
+from bs4 import BeautifulSoup
+
+# GEtting news from Times of India
+
+toi_r = requests.get("https://timesofindia.indiatimes.com/briefs")
+toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
+
+toi_headings = toi_soup.find_all('h2')
+
+toi_headings = toi_headings[0:-13] # removing footers
+
+toi_news = []
+
+for th in toi_headings:
+    toi_news.append(th.text)
+
+
+
+#Getting news from Hindustan times
+
+ht_r = requests.get("https://www.hindustantimes.com/india-news/")
+ht_soup = BeautifulSoup(ht_r.content, 'html5lib')
+ht_headings = ht_soup.findAll("div", {"class": "headingfour"})
+ht_headings = ht_headings[2:]
+ht_news = []
+
+for hth in ht_headings:
+    ht_news.append(hth.text)
+
+
+def newst(req):
+    return render(req, 'blog/newst.html', {'toi_news':toi_news, 'ht_news': ht_news})
+#============================================================================================================
+# Web Scraper end
+#============================================================================================================ 

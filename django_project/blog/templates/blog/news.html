@@ -8,19 +8,17 @@
 <head>
 <style>
 img {
-  box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
   border-radius: 8px;
   max-width: 50%;
-  height: auto;
+  height: 400px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.container1 {
-  background: #ffffff;
-  box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
   padding: 10px 20px;
   text-align: justify;
   text-justify: inter-word;
@@ -36,8 +34,8 @@ div.container1 {
   bottom: 100%;
   left: 0;
   right: 0;
-  background-color: #86b45069;
-  overflow: auto;
+  background-color: #347948;
+  overflow: hidden;
   width: 100%;
   height: 0;
   transition: .5s ease;
@@ -49,11 +47,11 @@ div.container1 {
 }
 
 .text {
-  white-space: break-spaces; 
+  white-space: breakspaces; 
   color: white;
   font-size: 20px;
   position: absolute;
-  overflow: auto;
+  overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -63,17 +61,68 @@ div.container1 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 </style>
 </head>
 <body>
-    <div class="container1">
-  <img src="{% static  'blog/images/BOHECO.png'%}" class="image">
+  <div class="container1">
+    <a href="https://cannabisindustryjournal.com/feature_article/indias-cannabis-market-examining-regulatory-frameworks-then-now/" target="_blank">
+    <img src="{% static 'blog/images/BOHECO.png'%}" class="image">
   <div class="overlay">
     <div class="text"><h3>India’s Cannabis Market: Examining Regulatory Frameworks Then & Now</h3>
                       <p>Following news in February that India’s first medical cannabis clinic has opened in Bangalore, Partner Shantanu Sinha and Senior Associate Rohit Fogla from Hill Dickinson’s India Desk discuss India’s history with cannabis, and how recent events suggest the country’s attitude to the plant may be changing.</p>
     </div>
+  </div></a>
+</div>
+<br>
+<div class="container1">
+  <a href="https://fieldsofgreenforall.org.za/cannabis-and-the-sustainable-development-goals/" target="_blank">
+  <img src="{% static 'blog/images/Sustainable Development.jpg'%}" class="image">
+<div class="overlay">
+  <div class="text"><h3>Cannabis and the Sustainable Development Goals</h3>
+                    <p>The South African Cannabis “scene” has become somewhat of a circus of late. We are in that messy transition between a movement and an industry and the soap opera gets a new episode each day. There’s new clowns, mother-in-laws, crooks, bean counters and mad gardeners fiddling with the plant and squabbling with each other.</p>
   </div>
+</div></a>
+</div>
+<br>
+<div class="container1">
+  <a href="https://sustainabledevelopment.un.org/partnership/?p=13554" target="_blank">
+  <img src="{% static 'blog/images/hemp.png'%}" class="image">
+<div class="overlay">
+  <div class="text"><h3>Linking Cannabis and hemp policies to sustainable development and human rights</h3>
+                    <p>The initiative consists in a collaborative research work of civil society organizations, academia, and affected populations, on the interlinkages between sustainable development and human rights ethics, and the policies on Cannabis and hemp, with the particular focus of international institutions in charge of drug control, to allow policies at the national level to help meet the goals and targets of the 2030 Agenda.
+                    </p>
+  </div>
+</div></a>
+</div>
+<br>
+<div class="container1">
+  <a href="https://www.investopedia.com/articles/insights/110916/economic-benefits-legalizing-weed.asp" target="_blank">
+  <img src="{% static 'blog/images/legalization.jpg'%}" class="image">
+<div class="overlay">
+  <div class="text"><h3>The Economic Benefits of Legalizing Weed</h3>
+                    <p>Although the Presidential election drew most of the attention in November of 2020, there were several other important decisions made at the polls as well: notably, several states held votes to determine the future of the legal cannabis industry in one form or another. Taking a leaf out of Colorado or Washington’s book, four states—New Jersey, South Dakota, Montana, and Arizona—decided to make marijuana consumption for recreational purposes legal.1 Mississippi also voted to allow medical marijuana.</p>
+  </div>
+</div></a>
+</div>
+<br>
+<div class="container1">
+  <a href="https://www.unsustainablemagazine.com/hemp-the-little-plant-that-could/" target="_blank">
+  <img src="{% static 'blog/images/a little plant.png'%}" class="image">
+<div class="overlay">
+  <div class="text"><h3>Hemp: The Little Plant That Could...</h3>
+                    <p>The benefits of hemp: It’s hard to imagine that a single plant could fulfil most human needs. Hemp (or Industrial Hemp, as it is also known) can clothe, house, medicate, feed livestock, and even cleanse soil. All of these things, and more, can be accomplished by utilizing every part of the hemp plant.</p>
+  </div>
+</div></a>
+</div>
+<br>
+<div class="container1">
+  <a href="https://www.grandviewresearch.com/industry-analysis/industrial-hemp-market" target="_blank">
+  <img src="{% static 'blog/images/hemp market.png'%}" class="image">
+<div class="overlay">
+  <div class="text"><h3>Industrial Hemp Market Size, Share & Trends Analysis Report By Product (Seeds, Fiber, Shives), By Application (Animal Care, Textiles, Food & Beverages, Personal Care), And Segment Forecasts, 2020 - 2027</h3>
+                    <p>The global industrial hemp market size was estimated at USD 4.71 billion in 2019 and is expected to register a revenue-based CAGR of 15.8% over the forecast period. The market is driven by the growing demand for hemp oil and fibers in the automotive, construction, food and beverage, personal care, and textile industries; especially in emerging regions such as the Asia Pacific.</p>
+  </div>
+</div></a>
 </div>
 </body>
 </html>
