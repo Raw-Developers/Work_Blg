@@ -1,19 +1,3 @@
-{% extends "blog/base.html" %}
-{%load static%}
-{% block content %}
-<h1> Contact Details Will be Mentioned Below</h1>
-
-<h1>Contact Us</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-actions">
-      <button type="submit">Send</button>
-    </div>
-</form>
-
-<label for="your_name">Your name: </label>
-<input id="your_name" type="text" name="your_name" maxlength="100" required>
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="{% static 'blog/contact/css/style.css'%}">
+	<link rel="stylesheet" href="css/style.css">
 
 	</head>
 	<body>
@@ -123,14 +107,12 @@
 		</div>
 	</section>
 
-	<script src="{% static 'blog/contact/js/jquery.min.js'%}"></script>
-  <script src="{% static 'blog/contact/js/popper.js'%}"></script>
-  <script src="{% static 'blog/contact/js/bootstrap.min.js'%}"></script>
-  <script src="{% static 'blog/contact/js/jquery.validate.min.js'%}"></script>
-  <script src="{% static 'blog/contact/js/main.js'%}"></script>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
 
 	</body>
 </html>
 
-
-{% endblock %}
