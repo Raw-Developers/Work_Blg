@@ -179,6 +179,8 @@ body {
   # Services
   --------------------------------------------------------------*/
   .services .icon-box {
+    height: 340px;
+    width: 478px;
     text-align: center;
     border: 1px solid #e2eefd;
     padding: 80px 20px;
