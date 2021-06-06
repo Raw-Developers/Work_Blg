@@ -14,6 +14,7 @@ from .models import Post
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from django.contrib import messages
 
 
 def home(request):
@@ -82,10 +83,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
+    return render(request, 'blog/about.html', {'title': 'Hemp-R'})
     
 def news(request):    
-    return render(request, 'blog/news.html', {'title': 'News'})
+    return render(request, 'blog/news.html', {'title': 'Hemp-R'})
 
 def contact(request):
     if request.method == 'GET':
@@ -94,14 +95,15 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
+            email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
+                send_mail(subject, message, email, ['admin@example.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('success')
+            messages.success(request, "Message sent." )
     return render(request, "blog/contact.html", {'form': form})
+    messages.error(request, "Error. Message not sent.")
 
 def successView(request):
     return HttpResponse('Success! Thank you for your message.')
@@ -109,8 +111,8 @@ def successView(request):
 # Web Scrapper Start
 #============================================================================================================
 
-from django.shortcuts import render
-import requests
+"""from django.shortcuts import render
+import requests 
 from bs4 import BeautifulSoup
 
 # GEtting news from Times of India
@@ -142,7 +144,7 @@ for hth in ht_headings:
 
 
 def newst(req):
-    return render(req, 'blog/newst.html', {'toi_news':toi_news, 'ht_news': ht_news})
+    return render(req, 'blog/newst.html', {'toi_news':toi_news, 'ht_news': ht_news})"""
 #============================================================================================================
 # Web Scraper end
 #============================================================================================================ 

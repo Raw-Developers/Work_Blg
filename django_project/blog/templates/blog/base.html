@@ -15,7 +15,7 @@
     {% if title %}
         <title>  {{ title }}</title>
     {% else %}
-        <title>Research</title>
+        <title>Hemp-R</title>
     {% endif %}
     <link rel="shortcut icon" href="{% static 'blog/images/hemp.png' %}">
 </head>
@@ -38,12 +38,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+              
+              <a class="nav-item nav-link" href="{% url 'blog-about' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Post</a>
               <a class="nav-item nav-link" href="{% url 'blog-news' %}">News Updates</a>
               <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact Us</a>
-              <a class="nav-item nav-link" href="{% url 'blog-newst' %}">News Aggregate</a>
-
+             
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
